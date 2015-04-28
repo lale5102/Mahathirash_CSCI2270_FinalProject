@@ -17,7 +17,7 @@ An executable is provided just in case you do not feel like trying to compile an
 The source code is available for download in a folder named "Source". If you are using an IDE, simply download the source code and include the files in a new project and compile it. If you are not using an IDE and are on a linux distro, open the terminal and navigate to where the files are and then type the following:
 > g++ -std=c++11 -o calculator parser.cpp parser.h test.cpp
 
-Afterwards, an executable named "calculator" should appear in your current directory. Either double click on the executable or type the following in the terminal:
+Afterwards, type the following to run the program:
 > ./calculator
 
 ## <b>Dependencies</b>

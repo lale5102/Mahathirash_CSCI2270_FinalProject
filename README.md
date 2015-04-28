@@ -6,6 +6,7 @@ This project is a basic implementation of a mathematical expression parser. When
 - Integers and decimals
 - The following operators: +, -, *, /, and ^
 - Parentheses
+
 The program will then process the expression into Reverse Polish Notation and evaluate the expression. Afterwards, the program will print the processed expression and the answer to the screen.
 
 ## <b>How to Run</b>

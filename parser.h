@@ -9,6 +9,7 @@ const std::string ERR_PARENTHESES = "Invalid Expression: Mismatched Parentheses"
 const std::string ERR_VALUES_UNDER = "Invalid Expression: Too few values in expressions"; // Error Code: 2
 const std::string ERR_VALUES_OVER = "Invalid Expression: Too many values in expression"; // Error Code: 3
 const std::string ERR_DIV_BY_ZERO = "Invalid Expression: Division by Zero"; // Error Code: 4
+const std::string ERR_INVALID_CHAR = "Invalid Expression: Invalid character in expression"; // Error Code: 5
 
 // Help Text
 const std::string HELP_TEXT = "Welcome to this super awesome, incredibly amazing mathematical expression parser!\n Sorry, that probably wasn't very helpful.";
@@ -74,18 +75,22 @@ public:
 	Calculator();
 	~Calculator();
 	void displayHelp();
-	int parseExpression(const std::string& expression);
+	std::string checkForUnaryMinus(std::string& expression);
+	int parseExpression(std::string& expression);
 	bool isParenthesis(const std::string& token);
 	bool isOperator(const std::string& token);
 	bool isLeftAssoc(const std::string& op);
 	bool isRightAssoc(const std::string& op);
+	bool isNumber(const std::string& token);
 	int checkPrecedence(const std::string& op1, const std::string& op2);
 	int evaluateExpression();
-	double applyOp(double a, double b, std::string op);
+	double applyOp(const double a, const double b, const std::string op);
 	void printRPN();
-	void clearStacksandQueues();
+	void reset();
+	void negateAnswer();
 	double getAnswer();
 private:
+	bool negateFlag = false; // If there is a unary minus in front of the whole expression, set to true (e.g., -(20+3) Evaluate 20 + 3 then negate answer)
 	Queue<std::string> output; // Holds expression in Reverse Polish Notation
 	Stack<std::string> numbers; // Used during calculation: Stack for numbers
 	Stack<std::string> operators; // Used during calculation: Stack for operators
